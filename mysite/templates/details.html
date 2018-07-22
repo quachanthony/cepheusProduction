@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<head>
+  <script type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <!-- <script src="https://code.highcharts.com/highcharts.src.js"></script> -->
+</head>
+
+<body>
+  <h1>This week's top performers:</h1>
+  <div class="topthreecontainer">
+    <div class="center-div">
+      <div class="card">
+        <img src="{% static "images/tombrady.png" %}" alt="first" style="width:100%">
+        <h2>Tom Brady</h2>
+        <p class="team">New England Patriots</p>
+        <p class="points">Points Projection: 28.2</p>
+      </div>
+      <div class="card">
+        <img src="{% static "images/drewbrees.png" %}" alt="second" style="width:100%">
+        <h2>Drew Brees</h2>
+        <p class="team">New Orleans Saints</p>
+        <p class="points">Points Projection: 26.8</p>
+      </div>
+      <div class="card">
+        <img src="{% static "images/aaronrogers.png" %}" alt="third" style="width:100%">
+        <h2>Aaron Rogers</h2>
+        <p class="team">Green Bay Packers</p>
+        <p class="points">Points Projection: 24.7</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="container"></div>
+  <script src="https://code.highcharts.com/highcharts.src.js"></script>
+  <script>
+    Highcharts.chart('container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Historic World Population by Region'
+        },
+        xAxis: {
+            categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania']
+        },
+        series: [{
+            name: 'Year 1800',
+            data: [107, 31, 635, 203, 2]
+        }, {
+            name: 'Year 1900',
+            data: [133, 156, 947, 408, 6]
+        }, {
+            name: 'Year 2012',
+            data: [1052, 954, 4250, 740, 38]
+        }]
+    });
+  </script>
+
+</body>
+</html>
